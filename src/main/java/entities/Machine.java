@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "Player.findAll", query = "select a from Player as a")
+        @NamedQuery(name = "Machine.findAll", query = "select a from Machine as a")
 })
 @Table(name = "MACHINE")
 public class Machine implements Serializable {
