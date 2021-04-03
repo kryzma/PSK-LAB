@@ -1,5 +1,8 @@
 package entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -7,8 +10,16 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "weight.findAll", query = "select a from Weight as a")
+})
 @Table(name = "WEIGHT")
+@Getter @Setter
 public class Weight {
+
+    public Weight() {
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,35 +29,9 @@ public class Weight {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "MATERIAL")
-    private String material;
-
     @ManyToOne
     private Zone zone;
 
-
-    public Weight(String name) {
-        this.name = name;
-    }
-
-    public Weight() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Override
     public boolean equals(Object o) {

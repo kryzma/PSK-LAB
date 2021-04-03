@@ -8,14 +8,14 @@
 <h:body>
     <h2>My Gym has:</h2>
     <ol>
-        <ui:repeat value="#{machines.allMachines}" var="machine">
-            <li>#{machine.name}</li>
+        <ui:repeat value="#{zones.allZones}" var="zone">
+            <li><h:link value="#{zone.name}" outcome="weights?zoneId=#{zone.id}"/></li>
         </ui:repeat>
 
     </ol>
     <h:form>
-        <h:inputText value="#{machines.machineToCreate.name}" required="true" />
-        <h:commandButton value="Add new machine" action="#{machines.createMachine}" />
+        <h:inputText value="#{zones.zoneToCreate.name}" required="true" />
+        <h:commandButton value="Add new zone" action="#{zones.createZone}" />
     </h:form>
 </h:body>
 </html>

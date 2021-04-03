@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@NamedQueries({
-        @NamedQuery(name = "Machine.findAll", query = "select a from Machine as a")
-})
 @Table(name = "MACHINE")
 public class Machine implements Serializable {
 
@@ -22,8 +19,8 @@ public class Machine implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToMany(mappedBy = "machine")
-    private List<Zone> zone = new ArrayList<>();
+    @ManyToMany(mappedBy = "machines")
+    private List<Zone> zones = new ArrayList<>();
 
     public Machine(String name) {
         this.name = name;

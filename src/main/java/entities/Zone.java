@@ -1,5 +1,8 @@
 package entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
@@ -8,8 +11,15 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Zone.findAll", query = "select a from Zone as a")
+})
 @Table(name = "ZONE")
+@Getter @Setter
 public class Zone implements Serializable {
+
+    public Zone() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,35 +30,10 @@ public class Zone implements Serializable {
     private String name;
 
     @ManyToMany
-    private List<Machine> machine = new ArrayList<>();
+    private List<Machine> machines = new ArrayList<>();
 
     @OneToMany(mappedBy = "zone")
-    private List<Weight> weight = new ArrayList<>();
-
-
-    public Zone(String name) {
-        this.name = name;
-    }
-
-    public Zone() {
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private List<Weight> weights = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
