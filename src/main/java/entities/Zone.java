@@ -8,11 +8,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@NamedQueries({
-        @NamedQuery(name = "Machine.findAll", query = "select a from Machine as a")
-})
-@Table(name = "MACHINE")
-public class Machine implements Serializable {
+@Table(name = "ZONE")
+public class Zone implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,15 +19,20 @@ public class Machine implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToMany(mappedBy = "machine")
-    private List<Zone> zone = new ArrayList<>();
+    @ManyToMany
+    private List<Machine> machine = new ArrayList<>();
 
-    public Machine(String name) {
+    @OneToMany(mappedBy = "zone")
+    private List<Weight> weight = new ArrayList<>();
+
+
+    public Zone(String name) {
         this.name = name;
     }
 
-    public Machine() {
+    public Zone() {
     }
+
 
     public String getName() {
         return name;
@@ -48,19 +50,17 @@ public class Machine implements Serializable {
         this.id = id;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Machine machine = (Machine) o;
-        return Objects.equals(id, machine.id) && Objects.equals(name, machine.name);
+        Zone zone = (Zone) o;
+        return Objects.equals(id, zone.id) && Objects.equals(name, zone.name);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
 
 }

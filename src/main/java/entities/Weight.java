@@ -2,17 +2,13 @@ package entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
-@NamedQueries({
-        @NamedQuery(name = "Machine.findAll", query = "select a from Machine as a")
-})
-@Table(name = "MACHINE")
-public class Machine implements Serializable {
+@Table(name = "WEIGHT")
+public class Weight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,14 +18,18 @@ public class Machine implements Serializable {
     @Column(name = "NAME")
     private String name;
 
-    @ManyToMany(mappedBy = "machine")
-    private List<Zone> zone = new ArrayList<>();
+    @Column(name = "MATERIAL")
+    private String material;
 
-    public Machine(String name) {
+    @ManyToOne
+    private Zone zone;
+
+
+    public Weight(String name) {
         this.name = name;
     }
 
-    public Machine() {
+    public Weight() {
     }
 
     public String getName() {
@@ -48,19 +48,16 @@ public class Machine implements Serializable {
         this.id = id;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Machine machine = (Machine) o;
-        return Objects.equals(id, machine.id) && Objects.equals(name, machine.name);
+        Weight weight = (Weight) o;
+        return Objects.equals(id, weight.id) && Objects.equals(name, weight.name);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
-
 }
