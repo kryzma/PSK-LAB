@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Machine.findAll", query = "select a from Machine as a")
+})
 @Table(name = "MACHINE")
 public class Machine implements Serializable {
 

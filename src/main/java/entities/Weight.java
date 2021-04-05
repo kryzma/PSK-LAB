@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name = "weight.findAll", query = "select a from Weight as a")
+        @NamedQuery(name = "Weight.findAll", query = "select a from Weight as a")
 })
 @Table(name = "WEIGHT")
 @Getter @Setter
