@@ -12,13 +12,13 @@
                         password="sa">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="mybatis.model"
+        <javaModelGenerator targetPackage="myBatis.model"
                             targetProject="MAVEN"/>
 
-        <sqlMapGenerator targetPackage="mybatis.xml"
+        <sqlMapGenerator targetPackage="myBatis.xml"
                          targetProject="MAVEN"/>
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="mybatis.dao"
+                             targetPackage="myBatis.dao"
                              targetProject="MAVEN"/>
 
 

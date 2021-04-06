@@ -4,21 +4,21 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="mybatis.model.Machine" alias="Machine"/>
-        <typeAlias type="mybatis.model.Weight" alias="Weight"/>
-        <typeAlias type="mybatis.model.Zone" alias="Zone"/>
+        <typeAlias type="myBatis.model.Machine" alias="Machine"/>
+        <typeAlias type="myBatis.model.Weight" alias="Weight"/>
+        <typeAlias type="myBatis.model.Zone" alias="Zone"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="MANAGED"/>
             <dataSource type="JNDI">
-                <property name="GymDataSource" value="GymDataSource"/>
+                <property name="data_source" value="GymDataSource"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatisXml/MachineMapper.xml"/>
-        <mapper resource="mybatisXml/WeightModificationMapper.xml"/>
-        <mapper resource="mybatisXml/ZoneMapper.xml"/>
+        <mapper resource="myBatisXml/MachineMapper.xml"/>
+        <mapper resource="myBatisXml/WeightMapper.xml"/>
+        <mapper resource="myBatisXml/ZoneMapper.xml"/>
     </mappers>
 </configuration>

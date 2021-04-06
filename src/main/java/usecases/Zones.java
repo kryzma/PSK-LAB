@@ -25,7 +25,7 @@ public class Zones {
 
     @PostConstruct
     public void init(){
-        loadAllZones();
+        this.loadAllZones();
     }
 
     @Transactional
