@@ -1,6 +1,7 @@
 package usecases;
 
 import entities.Zone;
+import interceptor.LoggedInvocation;
 import lombok.Getter;
 import lombok.Setter;
 import persistence.ZonesDAO;
@@ -28,6 +29,7 @@ public class Zones {
         this.loadAllZones();
     }
 
+    @LoggedInvocation
     @Transactional
     public String createZone(){
         this.zonesDAO.persist(zoneToCreate);
