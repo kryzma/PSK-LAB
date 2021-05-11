@@ -10,5 +10,9 @@
         <class>interceptor.MethodLogger</class>
     </interceptors>
 
+    <alternatives>
+        <class>services.MilkShakeMachine</class>
+    </alternatives>
+
 </beans>
 
