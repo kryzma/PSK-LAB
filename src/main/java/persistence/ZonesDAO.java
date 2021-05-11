@@ -28,4 +28,8 @@ public class ZonesDAO {
     public Zone findOne(Integer id) {
         return em.find(Zone.class, id);
     }
+
+    public Zone update(Zone zone) {
+        return em.merge(zone);
+    }
 }
