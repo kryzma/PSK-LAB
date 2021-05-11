@@ -17,9 +17,17 @@
         <h:inputText value="#{zones.zoneToCreate.name}" required="true" />
         <h:commandButton value="Add new zone" action="#{zones.createZone}" />
     </h:form>
+
+    <br/>
     <h:form>
         <h:commandButton value="Drink shake" action="#{shakes.drinkShake}" />
     </h:form>
+
+    <br/>
+    <h:form>
+        <h:commandButton value="Dispense chalk" action="#{chalk.dispenseChalk}" />
+    </h:form>
+
     <h:link outcome="myBatisWeb/indexMB" value="MyBatis implementation"/>
 </h:body>
 </html>
