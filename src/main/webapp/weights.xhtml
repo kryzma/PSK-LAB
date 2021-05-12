@@ -10,7 +10,7 @@
     <h2>Weights inside  #{weightsForZone.zone.name} zone:</h2>
     <ol>
         <ui:repeat value="#{weightsForZone.zone.weights}" var="weight">
-            <li>#{weight.name}</li>
+            <li><h:link value="#{weight.name}" outcome="weight.xhtml?weightId=#{weight.id}"/></li>
         </ui:repeat>
     </ol>
     <h:form>

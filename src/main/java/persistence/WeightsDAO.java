@@ -1,6 +1,7 @@
 package persistence;
 
 import entities.Weight;
+import entities.Zone;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

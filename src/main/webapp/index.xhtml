@@ -30,9 +30,15 @@
 
     <br/>
     <h:form>
-        <h:commandButton value="Generate number" action="#{locker.generateCode}" />
+        <h:commandButton value="Generate locker number" action="#{locker.generateCode}" />
     </h:form>
-
+    <br/>
+    <br/>
+    <div>Asynchronous communication demo</div>
+    <h:form>
+        <h:outputText value="#{workout.workoutGenerationStatus}" />
+        <h:commandButton value="Generate workout plan for today" disabled="#{workout.workoutGenerationRunning}" action="#{workout.generateNewWorkout()}"/>
+    </h:form>
     <h:link outcome="myBatisWeb/indexMB" value="MyBatis implementation"/>
 </h:body>
 </html>
