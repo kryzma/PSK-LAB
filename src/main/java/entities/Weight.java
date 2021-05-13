@@ -32,6 +32,10 @@ public class Weight {
     @ManyToOne
     private Zone zone;
 
+    @Version
+    @Column(name="OPT_LOCK_VERSION")
+    private Integer version;
+
 
     @Override
     public boolean equals(Object o) {
